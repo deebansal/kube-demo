@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: kubedemo
+ labels:
+  app: kube-demo
+  tier: backend 
+spec:
+ type: NodePort
+ ports:
+ - port: 8081
+ selector:
+  app: kube-demo
+  tier: backend 

@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: kubedemo
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kube-demo
+        tier: backend 
+    spec:
+      containers:
+      - name: kube-demo
+        image: springdocker
+        imagePullPolicy: Never
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 8081
